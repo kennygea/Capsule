@@ -1,0 +1,45 @@
+<html ng-app="capsule">
+<% include ../partials/head.ejs %>
+<body class="beige-bg" style="padding-bottom: 50px;">
+  <% include ../partials/nav.ejs %>
+  <% include ../partials/modal.html %>
+  <div ng-controller="post-ctrl" ng-cloak>
+    <div class="ui two column grid container" style="padding-top: 75px">
+      <div class="ui center aligned sixteen wide column">
+        <h3>Capsules cycle {{ formatTime() }}</h3>
+      </div>
+      <div class="ui six wide column"></div>
+      <div class="ui large error message four wide column" ng-class="{'hidden': !err || (text && text.length > 0 && hashtags.length > 0)}" ng-bind-html="err"></div>
+      <div class="ui six wide column"></div>
+    </div>
+    <div class="ui right labeled icon massive transparent input green-border main" style="margin-top: 20px">
+        <input type="text" id="predtext" name="prediction" placeholder="Make a Prediction..." ng-model="text" ng-enter="newPost()" autocomplete="off" ng-trim="false"/>
+        <div class="tworightlabel no-border transparent-bg ui basic label" ng-class="{'red-text': text.length > 50}" style="margin-right: 20px;">{{ text.length }}/50</div>
+        <i class="help circle icon link" data-html="<h1 class='ui header'>What should I predict?</h1>To get the most out of Capsule, try predicting about current events, or future headlines. For example, <br /> <em>I think that Kobe Bryant will retire this year.</em>"></i>
+    </div>
+    <div class="ui right labeled massive transparent input blue-border main">
+      <input type="text" id="hashtags" name="hashtags" ng-model="hashtag" placeholder="Relevant Hashtags..." ng-enter="newHashtag()" ng-space="newHashtag()" ng-delete="bringBack()" autocomplete="off" maxlength="30"/>
+      <div class="tworightlabel no-border transparent-bg ui basic label">{{ hashtags.length }}/10</div>
+    </div>
+    <div class="main" id="hashtag-container" style="margin-top: 5px">
+      <div id="inner-hashtag-container">
+        <span ng-repeat="hash in hashtags" style="display: inline-block">
+          <a class='ui huge label' style="margin: 2px;">
+            {{hash}}
+            <i ng-click="removeHashtag(hash)" class='delete icon'></i>
+          </a>
+        </span>
+      </div>
+    </div>
+    <button class="ui large green fluid button" id="predict" ng-click="newPost()">Predict</button>
+  </div>
+  <feed ng-cloak>
+  </feed>
+  <script src="//hashtagify.me/assets/hashtagify/embed.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $('.help.circle').popup({
+      position: 'bottom left'
+    });
+  </script>
+</body>
+</html>

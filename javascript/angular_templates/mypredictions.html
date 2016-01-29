@@ -1,0 +1,32 @@
+  <div class="content">
+     <div id="interactor">
+      <i class="chevron up icon"></i>
+      <p id="score">{{pred.upvotes - pred.downvotes}}</p>
+      <i  class="chevron down icon"></i>
+    </div>
+    <div id="prediction">
+      <h4 class="ui header" style="margin-bottom: 2px;">{{ pred.username }}</h4>
+      <h6 style="margin: 0;"> {{ formatDate() }}</h6>
+        <p>{{ pred.text }}</p>
+		<p></p>
+		<p></p>
+		<div id="hashtags" style="font-style: italic">
+			<p> {{ getHashtags() }}  </p>
+		</div>
+		<br></br>
+  </div>
+  </div>
+  <div class="right-content"  ng-if="state == 1" ng-init="hoverlink=''">
+    <div class="ui equal width grid">
+      <ul class="column">
+        <li> <strong>Link Details</strong>
+        <li> <i class="ui icon twitter"></i> {{ pred.tophashtag }} {{ pred.tophashtagpopularity }}
+        <li ng-repeat="link in pred.links"> <i class="ui icon linkify"></i> <a ng-href="{{link.url}}" ng-mouseover="$parent.hoverlink = link" ng-mouseleave="$parent.hoverlink = ''" target="_blank">{{ link.title }}</a>
+      </ul>
+      <div class="sliding-image" ng-class="{'column': hoverlink}" ng-style="{'background-image': 'url(' + hoverlink.image + ')'}" > <span class="tag"> {{ hoverlink.title }}</span> </div>
+    </div>
+  </div>
+  <div class="extra content">
+		<i class="ui retweet icon"></i>
+		{{ pred.repredicts }} Re-Predicts
+  </div>

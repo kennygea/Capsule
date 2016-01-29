@@ -1,0 +1,45 @@
+{
+  "name": "capsule",
+  "version": "1.0.0",
+  "description": "Predict the Future",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.mit.edu/mit6148-2016/dentry148.git"
+  },
+  "author": "D Entry",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.14.2",
+    "cheerio": "^0.19.0",
+    "command-line-args": "^2.1.4",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.3.4",
+    "errorhandler": "^1.4.3",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "fs": "0.0.2",
+    "googleapis": "^2.1.7",
+    "http": "0.0.0",
+    "kerberos": "0.0.18",
+    "keyword-extractor": "0.0.12",
+    "later": "^1.2.0",
+    "moment": "^2.11.1",
+    "mongoose": "^4.3.5",
+    "mongoose-random": "~0.1.1",
+    "mongoose-simple-random": "^0.3.3",
+    "natural": "^0.2.1",
+    "node-wikipedia": "0.0.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "phantom": "^0.8.4",
+    "request": "^2.67.0",
+    "socket.io": "^1.4.4",
+    "string-case-match": "^1.0.2"
+  }
+}

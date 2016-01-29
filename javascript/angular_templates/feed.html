@@ -1,0 +1,12 @@
+<div class="ui two column centered grid">
+  <div class="column" id="predTabColumn">
+    <div style="margin-top: 30px;" class="ui small inverted teal two item menu">
+      <a class="item" ng-class="{'active': !state}" ng-click="setState(false)">New Predictions</a>
+      <a class="item" ng-class="{'active': state}" ng-click="setState(true)">Opened Predictions</a>
+    </div>
+  </div>
+</div>
+<p ng-if="predictions.length == 0" class="ui centered header">It looks like no predictions are currently {{ !state ? 'slated for burial' : 'uncovered' }}. Submit your own, or browse opened predictions!</p>
+<div class="ui one stackable cards" id="feed">
+  <prediction class="fluid teal card" ng-repeat="pred in predictions" pred="pred"></prediction>
+</div>

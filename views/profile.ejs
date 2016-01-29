@@ -1,0 +1,72 @@
+<html ng-app="capsule">
+  <% include ../partials/head.ejs %>
+  <body>
+    <% include ../partials/nav.ejs %>
+    <% include ../partials/modal.html %>
+	<div style="min-height: 100%; height: auto; height: 100%;margin: 0 auto -4em;">
+	<div class="ui top attached tabular menu" style="margin-top: 60">
+	  <div class="active item proftabs" data-tab="first">Profile</div>
+	  <div class="item proftabs" data-tab="second" ng-click="setState(false)">My Current Predictions</div>
+	  <div class="item proftabs" data-tab="third" ng-click="setState(true)">My Opened Predictions</div>
+	</div>
+	<div class="ui bottom attached active tab segment" data-tab="first">
+		<div class="ui raised segment">
+			<a class="ui teal left ribbon label">My Information</a>
+			<p></p>
+			<div class="ui list">
+			  <div class="item">
+				<div class="left-content">
+					<i class="users icon"></i>
+					<%= user.name %>
+				</div>
+			  </div>
+			  <div class="item">
+				<div class="left-content">
+				  <i class="mail icon"></i>
+				  <%= user.email %>
+				</div>
+			  </div>
+			</div>
+		</div>
+		<div class="ui raised segment">
+		<a class="ui red ribbon label">Change Password</a>
+		<p></p>
+			<form class="ui form" action="/updatepassword" method="POST">
+			  <div class="field">
+				<label>Previous Password</label>
+				<input type="password" name="previouspassword" placeholder="Previous Password">
+			  </div>
+			  <div class="field">
+				<label>New Password</label>
+				<input type="text" name="newpassword" placeholder="New Password">
+			  </div>
+			  <div class="field">
+				<label>Confirm New Password</label>
+				<input type="text" name="confirmnewpassword" placeholder="Re-type New Password">
+			  </div>
+			  <button class="ui button" type="submit">Submit</button>
+			  <p style="color: red"> <%=errorMessage%></p>
+			  <div class="ui error message"></div>
+			</form>
+		</div>
+	</div>
+	<div class="ui bottom attached tab segment" data-tab="second">
+		<div>
+		<feed>
+		</feed>
+		</div>
+	</div>
+	<div class="ui bottom attached tab segment" data-tab="third">
+		<div>
+		<feed>
+		</feed>
+		</div>
+	</div>
+	</div>
+    <div class="ui footer green-bg panel">
+      <h3 class="white-text">An <span class="red-text"> MIT 6.148 </span> Project</h2>
+      <h3 class="white-text">Made by Reece Tamashiro, Andrew Ilyas, and Kenny Gea</h3>
+    </div>
+  </body>
+  <script src="/profile.js"></script>
+</html>

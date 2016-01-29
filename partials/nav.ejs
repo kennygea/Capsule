@@ -1,0 +1,18 @@
+<div class="ui fixed inverted secondary pointing menu blue-bg">
+  <span id="navspan" class="item">
+    <% if (user) { %>
+      <a class="ui grey-text" href="/app"><img id="navlogo" src="/Capsule.png" /><span id="title">&nbsp;Capsule</span></a>
+    <% } else { %>
+      <a class="ui grey-text" href="/"><img id="navlogo" src="/Capsule.png" /><span id="title">&nbsp;Capsule</span></a>
+    <% } %>
+  </span>
+  <div class="right menu">
+      <div class="ui item"><i class="inverted help icon grey-text"></i></div>
+      <% if (user) { %>
+        <a class="ui item" href="/profile"><i class="dashboard icon"></i></a>
+        <a class="ui item active" href="/logout"><span id="signouttext">Sign Out (<%= user.name %>)</span><i id="signouticon" class="sign out icon inverted"></i></a>
+      <% } else { %>
+        <a class="ui item active" href="/signin">Sign In/Sign Up</a>
+      <% } %>
+  </div>
+</div>

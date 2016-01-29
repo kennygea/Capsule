@@ -1,0 +1,56 @@
+<html>
+<% include ../partials/head.ejs %>
+<body class="beige-bg">
+  <% include ../partials/nav.ejs %>
+  <% include ../partials/modal.html %>
+  <div class="blue-bg minidiv">
+    <h1 class="white-text red-underline">Welcome</h1>
+    <div class="ui inverted secondary pointing menu blue-bg">
+      <a class="redhover active item" data-tab="first">Sign in</a>
+      <a class="redhover item" data-tab="second">Sign up</a>
+    </div>
+    <div class="ui active inverted bottom attached tab segment" data-tab="first">
+      <form class="ui inverted form" action="/login" method="POST">
+        <div class="field">
+          <label>Email</label>
+          <input class="redfocus" type="text" name="username" placeholder="Email">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input class="redfocus" type="password" name="signinpassword" placeholder="Password">
+        </div>
+        <button style="margin-top:50px;" class="ui big green fluid button" type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="ui inverted bottom attached tab segment" data-tab="second">
+      <form class="ui inverted form" action="/signup" method="POST">
+        <div class="field">
+          <label>Name</label>
+          <input class="redfocus" type="text" name="name" placeholder="Full Name">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input class="redfocus" type="text" name="username" placeholder="Email">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input class="redfocus" type="password" name="password" placeholder="Password">
+        </div>
+        <div class="field">
+          <label>Confirm Password</label>
+          <input class="redfocus" type="password" name="confpassword" placeholder="Confirm Password">
+        </div>
+        <button style="margin-top:50px;" class="ui big green fluid button" type="submit">Submit</button>
+        <div class="ui error message"></div>
+      </form>
+    </div>
+  </div>
+  <% if(inOrUp === "up") { %>
+    <script type="text/javascript"> 
+      $('a[data-tab="second"],div[data-tab="second"]').addClass("active"); 
+      $('a[data-tab="first"],div[data-tab="first"]').removeClass("active"); 
+    </script>
+    <%}%>
+  <script type="text/javascript" src="/signin.js"></script>
+</body>
+</html>

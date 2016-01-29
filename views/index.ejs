@@ -1,0 +1,69 @@
+<html>
+  <% include ../partials/head.ejs %>
+  <body>
+    <% include ../partials/nav.ejs %>
+    <% include ../partials/modal.html %>
+    <div id="banner">
+      <div id="logo-div"><img id="logo" src="/Capsule.png" />Capsule</div>
+      <h2>Predict the Future</h2>
+
+      <div id="clock">
+        <span class="hand second"></span>
+        <span class="hand minute"></span>
+        <span class="hand hour"></span>
+      </div>
+      <div id="actions">
+        <% if(user) { %>
+          <a href="/app"><button class="ui red inverted button">Go to Capsule</button></a>
+        <% } else { %>
+          <a href="/signin?type=in"><button class="ui red inverted button">Sign In</button></a>
+          <a href="/signin?type=up"><button class="ui red inverted button">Sign Up</button></a>
+        <% } %>
+      </div>
+    </div>
+    <div id="about" class="beige panel">
+      <i id="scrollDown" class="fa fa-angle-double-down"></i>
+      <div class="ui stackable grid">
+        <div class="two wide column"></div>
+        <div class="four wide column minipanel">
+          <i class="fa fa-line-chart"></i>
+          <h3>Predict</h3>
+          <p>Predict important events that you think will happen in the next six months, along with the hashtags that will surface with it. Write your idea down, and bury it in a the monthly Capsule!</p>
+        </div>
+        <div class="four wide column minipanel">
+          <i class="fa fa-newspaper-o"></i>
+          <h3>Compare</h3>
+          <p>During the duration in which the capsule is buried, Capsule will take your predictions and scrape the web, looking for events that are similar to your predictions as well as look for trending hashtags.</p>
+        </div>
+        <div class="four wide column minipanel">
+          <i class="fa fa-globe"></i>
+          <h3>Explore</h3>
+          <p>Six months after a time capsule is buried, it reopens to the public---Capsule automatically couples each prediction with events or hashtags from the last six months, so you can see how close you really were.</p>
+        </div>
+        <div class="two wide column"></div>
+      </div>
+    </div>
+    <div class="blue-bg panel">
+      <h1 class="beige-text">Start Predicting</h1>
+      <div id="actions">
+        <% if(user) { %>
+          <a href="/app"><button class="ui red inverted button">Go to Capsule</button></a>
+        <% } else { %>
+          <a href="/signin?type=in"><button class="ui red inverted button">Sign In</button></a> <span class="white-text" style="font-size: 20px;">or</span>
+          <a href="/signin?type=up"><button class="ui red inverted button">Sign Up</button></a>
+        <% } %>
+      </div>
+    </div>
+    <div class="green-bg panel">
+      <h3 class="white-text">An <span class="red-text"> MIT 6.148 </span> Project</h2>
+      <h3 class="white-text">Made by Reece Tamashiro, Andrew Ilyas, and Kenny Gea</h3>
+    </div>
+    <script type="text/javascript">
+    $("#scrollDown").click(function() {
+      $('html, body').animate({
+        scrollTop: $("#about").offset().top
+      }, 'slow');
+    });
+    </script>
+  </body>
+</html>
